@@ -1,7 +1,7 @@
 #brute force approach
 ---
 '''
-class Solution {
+/*class Solution {
     public List<Integer> targetIndices(int[] nums, int target) {
         Arrays.sort(nums);
         ArrayList<Integer> ans=new ArrayList<>();
@@ -11,6 +11,26 @@ class Solution {
             }
         }
         return ans;
+    }
+}*/
+//optimal
+class Solution {
+    public List<Integer> targetIndices(int[] nums, int target) {
+       int ltc=0;
+       int tcnt=0;
+       for(int num:nums) {
+        if(num<target) {
+            ltc++;
+        }
+        else if(num==target) {
+            tcnt++;
+        }
+       } 
+       List<Integer> res=new ArrayList<>();
+       for(int i=0;i<tcnt;i++) {
+        res.add(ltc+i);
+       }
+       return res;
     }
 }
 '''
